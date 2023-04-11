@@ -73,7 +73,7 @@ const KycForm = ({codeArray}:dialCodeArray) => {
               </label>
               <div className="phone_input form-control">
                 <select name="" id="codedelect">
-                    {codeArray.map((item,index)=>(<option value={item.dial_code} >{item.name}  {item.dial_code}</option>))}
+                    {codeArray.map((item,index)=>(<option value={item.dial_code} key={index}>{item.name}  {item.dial_code}</option>))}
                 </select>
               <input type="text" id="number" maxLength={10} placeholder={'enter 10 digit number'} />
               </div>
