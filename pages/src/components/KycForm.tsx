@@ -5,7 +5,9 @@ import { FaImage } from "react-icons/fa";
 
 
 const KycForm = ({codeArray}:dialCodeArray) => {
-    
+ if(!codeArray){
+    codeArray=[]
+ }
 
   return (
     <>
