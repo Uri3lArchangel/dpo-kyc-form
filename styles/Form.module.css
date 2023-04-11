@@ -1,0 +1,117 @@
+.topBar {
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  background-color: white;
+  box-shadow: -2px 0 10px #0004;
+
+  width: 100%;
+}
+.headerLogo img {
+  margin: auto;
+  display: block;
+  width: 100%;
+  height: 40px;
+}
+.headerLogo {
+  width: fit-content;
+  margin: auto;
+}
+.topBar h2 {
+  color: white;
+  background-color: #607d8b;
+  padding: 0.5em 0;
+  font-style: italic;
+  font-weight: 600;
+  text-align: center;
+  line-break: anywhere;
+  width: 100%;
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+    "Lucida Sans", Arial, sans-serif;
+  font-size: 1.2rem !important;
+}
+
+/*footer*/
+
+.footerContainer {
+  /* position: absolute; */
+  box-shadow: 2px 0px 10px #0004;
+  bottom: 0;
+  width: 100%;
+  height: 400px;
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  padding: 0.7em 0;
+  margin-top: 10em;
+}
+.footerLogoContainer img {
+  width: 100%;
+  height: 100%;
+}
+.footerLogoContainer {
+  width: 120px;
+}
+.footerLayoutContainer {
+  width: 70%;
+  margin: auto;
+}
+.footerLayoutContainer a {
+  display: block;
+  color: black;
+  margin: 0.4em 0;
+  line-break: anywhere;
+}
+.footerLayoutContainer section {
+  margin: 0.6em 0;
+}
+.footerLayoutContainer a:hover {
+  color: #729502;
+}
+.termsOfUse {
+  text-align: center;
+  border-top: 1px solid #0002;
+  padding: 1em 0 3em 0;
+  line-break: anywhere;
+}
+.footerLayoutContainer h4 {
+  font-size: 1.3rem;
+}
+.footerLayoutContainer div {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+}
+.footerLayoutContainer div a {
+  margin: 0 0.4em;
+}
+.footerLayoutContainer div a:hover {
+  color: #729502;
+}
+.icons {
+  color: #729502;
+}
+@media screen and (min-width: 650px) {
+  .footerLogoContainer {
+    width: 240px;
+  }
+  .footerLayoutContainer {
+    display: flex;
+    justify-content: space-between;
+    width: 90%;
+    margin: auto;
+  }
+}
+@media screen and (min-width: 900px) {
+  .footerLayoutContainer {
+    width: 70%;
+  }
+
+  .headerLogo img {
+    height: 45px;
+  }
+
+  .termsOfUse {
+    padding: 1em 0 0 0;
+  }
+}
