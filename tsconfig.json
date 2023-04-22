@@ -18,6 +18,6 @@
       "@/*": ["./*"]
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "pages/src/web3/metamaskConnect.js", "pages/src/utils/helper/formatDate.js"],
   "exclude": ["node_modules"]
 }
