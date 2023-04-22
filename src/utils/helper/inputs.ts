@@ -7,7 +7,7 @@ export const postInputs = async(fname:string,lname:string,location:string,email:
         fname,lname,location,email,phone,wallet,plan,comapny
     }
     console.log('posting')
-   let res =  await axios.post('/api/upload',data)
+   let res =  await axios.post('https://dpo-kyc-form.vercel.app/api/upload',data)
 
    return res.data.message
 }

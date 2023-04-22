@@ -37,6 +37,6 @@ const InvestorSchema = new Schema({
   Rejections:Number
 });
 
-let Investor = models.Investors || model('Investors',InvestorSchema)
+let   Investor = models.Investors || model('Investors',InvestorSchema)
 
 export default Investor
