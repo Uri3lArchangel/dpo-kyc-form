@@ -1,6 +1,6 @@
 import React from "react";
-import KycForm from "./src/components/KycForm";
-import Rootlayout from "./src/layouts/Rootlayout";
+import KycForm from "../src/components/KycForm";
+import Rootlayout from "../src/layouts/Rootlayout";
 
 export interface dialCodeObj {
   name: string;

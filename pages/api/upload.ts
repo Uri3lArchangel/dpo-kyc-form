@@ -1,6 +1,6 @@
 // Next.js API route support: https://nextjs.org/docs/api-routes/introduction
 import type { NextApiRequest, NextApiResponse } from 'next'
-import { uplaodData } from '../src/utils/PostHelper'
+import { uplaodData } from '../../src/utils/PostHelper'
 
 type Data = {
   message: string
