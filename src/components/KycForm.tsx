@@ -1,6 +1,6 @@
 import { dialCodeArray } from "@/pages";
 import React, { useEffect, useRef, useState } from "react";
-import { FaImage } from "react-icons/fa";
+// import { FaImage } from "react-icons/fa";
 import { connect } from "../web3/metamaskConnect";
 import { postInputs } from "../utils/helper/inputs";
 import { useRouter } from "next/router";
@@ -175,7 +175,7 @@ const KycForm = ({ codeArray }: dialCodeArray) => {
               <option value="Accredited Investors">Accredited Investors</option>
             </select>
 
-            <label className="selectimg cursor-pointer required">
+            {/* <label className="selectimg cursor-pointer required">
               <FaImage className="icon" />
               <p className="cursor-pointer">Upload image</p>
               <input
@@ -184,7 +184,7 @@ const KycForm = ({ codeArray }: dialCodeArray) => {
                 ref={imageRef}
                 className="img bg-white"
               />
-            </label>
+            </label> */}
           </div>
           <input type="Submit" onClick={submitForm} className="submit" value="Submit Form" />
         </section>

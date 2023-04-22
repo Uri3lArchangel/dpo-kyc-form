@@ -1,6 +1,6 @@
 import Image from "next/image";
 import React from "react";
-import top from "../../../styles/Form.module.css";
+import top from "../../styles/Form.module.css";
 import headerLogo from "/public/assets/directprivateoffers-logo-bd.png";
 
 function Topbar() {

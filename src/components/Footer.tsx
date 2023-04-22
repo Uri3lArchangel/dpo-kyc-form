@@ -1,7 +1,7 @@
 import Image from 'next/image'
 import React from 'react'
 import footerLogo from '/public/assets/dpo-logo-footer.png'
-import ft from '../../../styles/Form.module.css'
+import ft from '../../styles/Form.module.css'
 import {CgMail, CgPhone} from 'react-icons/cg'
 import Link from 'next/link'
 
