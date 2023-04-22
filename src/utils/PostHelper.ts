@@ -3,7 +3,7 @@ import { connectMongo } from "./db/connectMongo";
 import Investor from "./db/invesorModel";
 import { formatDate } from "./helper/formatDate";
 
-export const uplaodData = async(req:NextApiRequest)=>{
+export const uploadData = async(req:NextApiRequest)=>{
 const {fname,lname,location,email,phone,wallet,plan,comapny}=req.body
 await connectMongo()
 console.log('creating...')
