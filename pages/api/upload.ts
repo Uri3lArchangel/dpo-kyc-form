@@ -11,10 +11,11 @@ export default async function handler(
   res: NextApiResponse<Data>
 ) {
   try{
- await uploadData(req)
+ await uploadData(req,res)
   res.status(201).json({ message: 'success' })
   }catch(err){
-    res.status(200).json({ message: 'failed' })
+    console.error(err)
+    res.status(500).json({ message: 'failed' })
     
   }
 }
