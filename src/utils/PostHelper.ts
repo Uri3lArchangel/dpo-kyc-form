@@ -12,6 +12,6 @@ await connectMongo()
 console.log('creating...')
 const today =new  Date()
 let date =formatDate(today)
-await Investor.create({Image:'',FirstName:fname,LastName:lname,Location:location,Email:email,PhoneNumber:phone,Plan:plan,Wallet:wallet,Company:comapny,Status:'pending',Date:date,Approvals:0,Rejections:0})
+await Investor.create({Image:'',FirstName:fname,LastName:lname,Location:location,Email:email,PhoneNumber:phone,Plan:plan,Wallet:wallet,Company:comapny,Status:'pending',Date:date,Approvals:0,Rejections:0,ApprovedBy:[]})
 console.log('created')
 }

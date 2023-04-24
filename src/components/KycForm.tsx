@@ -4,9 +4,12 @@ import React, { useEffect, useRef, useState } from "react";
 import { connect } from "../web3/metamaskConnect";
 import { postInputs } from "../utils/helper/inputs";
 import { useRouter } from "next/router";
+import { Button, message, Space } from "antd";
 
 const KycForm = ({ codeArray }: dialCodeArray) => {
-  const router = useRouter()
+  const [messageApi, contextHolder] = message.useMessage();
+
+  const router = useRouter();
   if (!codeArray) {
     codeArray = [];
   }
@@ -36,34 +39,63 @@ const KycForm = ({ codeArray }: dialCodeArray) => {
   const planRef = useRef<HTMLSelectElement>(null);
   const imageRef = useRef<HTMLInputElement>(null);
 
-  const submitForm = async(e: React.MouseEvent) => {
-    e.preventDefault();
-    console.log('a')
-    const Fname = firstNameRef.current?.value;
-    const Lname = lastNameRef.current?.value;
-    const Company = companyNameRef.current?.value;
-    const Location = locationRef.current?.value;
-    const Email = emailRef.current?.value;
-    const Phone = phoneRef.current?.value;
-    const Wallet = walletRef.current?.value;
-    const Code = codeRef.current?.value;
-    const Plan = planRef.current?.value;
-    if(Code && Phone && Fname && Lname && Location && Email && Wallet && Plan){
-    const PhoneCode = Code+Phone
-   let result =await postInputs(Fname, Lname, Location, Email, PhoneCode, Wallet, Plan, Company);
-   if(result === 'success'){
-    alert('upload successful')
-    router.reload()
-   }else{
-
-   }
-    }else{
-      alert('Input Field Error')
+  const submitForm = async (e: React.MouseEvent) => {
+    try {
+      e.preventDefault();
+      messageApi.destroy();
+      messageApi.loading("Uploading", 1000);
+      const Fname = firstNameRef.current?.value;
+      const Lname = lastNameRef.current?.value;
+      const Company = companyNameRef.current?.value;
+      const Location = locationRef.current?.value;
+      const Email = emailRef.current?.value;
+      const Phone = phoneRef.current?.value;
+      const Wallet = walletRef.current?.value;
+      const Code = codeRef.current?.value;
+      const Plan = planRef.current?.value;
+      if (
+        Code &&
+        Phone &&
+        Fname &&
+        Lname &&
+        Location &&
+        Email &&
+        Wallet &&
+        Plan
+      ) {
+        const PhoneCode = Code + Phone;
+        let result = await postInputs(
+          Fname,
+          Lname,
+          Location,
+          Email,
+          PhoneCode,
+          Wallet,
+          Plan,
+          Company
+        );
+        if (result === "success") {
+          messageApi.destroy();
+          messageApi.success("upload successful", 5);
+          router.reload();
+        } else {
+          messageApi.destroy();
+          messageApi.error(result, 5);
+        }
+      } else {
+        messageApi.destroy();
+        messageApi.error("Input Field Error", 5);
+      }
+    } catch (err:any) {
+      messageApi.destroy();
+      messageApi.error(String(err.message), 5);
+      console.error(err)
     }
   };
 
   return (
     <>
+      {contextHolder}
       <form action="">
         <section className="container ">
           <div className="contact mx-auto ">
@@ -168,7 +200,9 @@ const KycForm = ({ codeArray }: dialCodeArray) => {
             </label>
             <select required className="select" id="plan" ref={planRef}>
               <option disabled selected></option>
-              <option value="Investigation Registration">Investigation Registration</option>
+              <option value="Investigation Registration">
+                Investigation Registration
+              </option>
               <option value="Issuer Resgitration">Issuer Resgitration</option>
               <option value="Admin-Blog Author">Admin-Blog Author</option>
               <option value="General User Account">General User Account</option>
@@ -186,7 +220,12 @@ const KycForm = ({ codeArray }: dialCodeArray) => {
               />
             </label> */}
           </div>
-          <input type="Submit" onClick={submitForm} className="submit" value="Submit Form" />
+          <input
+            type="Submit"
+            onClick={submitForm}
+            className="submit"
+            value="Submit Form"
+          />
         </section>
       </form>
     </>
