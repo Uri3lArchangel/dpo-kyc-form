@@ -35,7 +35,7 @@ const InvestorSchema = new Schema({
   Date:String,
   Approvals:Number,
   Rejections:Number,
-  ApprovedBy:Array
+  ApprovedByBoard:Boolean
 });
 
 let   Investor = models.investor || model('investor',InvestorSchema)
